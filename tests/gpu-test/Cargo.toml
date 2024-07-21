@@ -9,11 +9,11 @@ homepage = "https://eigen.cash"
 
 
 [[bin]]
-name = "prover"
+name = "prover-gpu"
 path = "src/prover.rs"
 
 [[bin]]
-name = "verifier"
+name = "verifier-gpu"
 path = "src/verifier.rs"
 
 [dependencies]

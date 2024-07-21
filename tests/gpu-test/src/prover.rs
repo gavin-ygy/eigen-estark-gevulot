@@ -80,12 +80,12 @@ fn run_task(task: Task) -> Result<TaskResult> {
     write!(log_file, "Number of GPUs: {}\n", device_count);
     // 遍历所有 GPU 设备
     for i in 0..device_count {
-        let handle = nvml.device_get_handle_by_index(i as u32).unwrap();
-        let info = nvml.device_get_info(handle);
+        let device = nvml.device_by_index(i as u32).unwrap();
+        let brand = device.brand()?;
 
         log::info!("GPU {}:", i);
-        log::info!("  Name: {}", info.name.unwrap());
-        write!(log_file, "name: {}\n", info.name.unwrap());
+        log::info!("  Name: {}", brand);
+        write!(log_file, "name: {}\n", brand);
     }
 
 

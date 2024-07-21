@@ -18,7 +18,7 @@ use ff::{Field, PrimeField};
 use num_traits::Zero;
 //use rand_new::rngs::OsRng;
 use rand::rngs::OsRng;
-
+use pairing::{Engine, MultiMillerLoop};
 
 
 #[derive(Debug, Parser, Default)]

@@ -25,6 +25,7 @@ nvml-wrapper = "0.10"
 blstrs = "0.7"
 rand = "0.8"
 ff = "0.13.0"
+pairing = { version = "0.23.0", optional = true }
 ##blstrs = { version = "0.7.0", features = ["__private_bench"], optional = true }
 ##bellperson = { version = "0.26", default-features = false, features = ["groth16"], optional = true }
 ##rand_new = { package = "rand", version = "0.8", features = ["getrandom"], optional = true }

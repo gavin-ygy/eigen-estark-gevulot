@@ -10,7 +10,7 @@ use std::io::Write;
 
 ///Gpu 
 use nvml_wrapper::Nvml;
-//use algebraic::witness::{load_input_for_witness, WitnessCalculator};
+use algebraic::witness::{load_input_for_witness, WitnessCalculator};
 use algebraic_gpu::circom_circuit::CircomCircuit;
 use algebraic_gpu::reader;
 use blstrs::{Bls12, Scalar};
@@ -19,12 +19,7 @@ use num_traits::Zero;
 //use rand_new::rngs::OsRng;
 use rand::rngs::OsRng;
 
-use algebraic_gpu::{
-    circom_circuit::CircomCircuit,
-    reader::load_r1cs,
-    witness::{load_input_for_witness, WitnessCalculator},
-    Field, PrimeField,
-};
+
 
 #[derive(Debug, Parser, Default)]
 #[command(about, version, no_binary_name(true))]

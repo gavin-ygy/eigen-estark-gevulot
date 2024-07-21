@@ -1,4 +1,5 @@
 extern crate clap;
+extern crate blstrs;
 use clap::{command, Parser};
 use groth16::api::*;
 use starky::prove::stark_prove;
@@ -43,12 +44,6 @@ fn run_task(task: Task) -> Result<TaskResult> {
     println!("0xEigenLabs gpu prover : task.args: {:?}", &task.args);
 
     let args = Cli::parse_from(&task.args);
-
-    log::info!(
-        "parameters: proof file:{}; circom fiel:{}",
-        args.zkin,
-        args.circom_file
-    );
 
     log::info!(
         "parameters: input_file:{} ; circuit_file_bls12:{} ; wasm_file_bls12:{}",

@@ -1,0 +1,47 @@
+[package]
+name = "eigen-gevulot-test-programs"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "Eigen Gevulot Test Programs"
+documentation = "https://eigen.cash"
+homepage = "https://eigen.cash"
+
+
+[[bin]]
+name = "prover"
+path = "src/prover.rs"
+
+[[bin]]
+name = "verifier"
+path = "src/verifier.rs"
+
+[dependencies]
+groth16 = { git = "https://github.com/0xEigenLabs/eigen-zkvm", branch = "main" }
+##algebraic = { git = "https://github.com/0xEigenLabs/eigen-zkvm", branch = "main" }
+# GPU-specific dependencies (enabled only for cuda and opencl features)
+algebraic-gpu = { git = "https://github.com/0xEigenLabs/eigen-zkvm", branch = "main" }
+ff = { version = "0.13.0", features = ["derive"], optional = true }
+
+nvml-wrapper = "0.7"
+
+blstrs = { version = "0.7.0", features = ["__private_bench"], optional = true }
+bellperson = { version = "0.26", default-features = false, features = ["groth16"], optional = true }
+rand_new = { package = "rand", version = "0.8", features = ["getrandom"], optional = true }
+rand_core = { version = "0.6", optional = true }
+
+starky = { git = "https://github.com/0xEigenLabs/eigen-zkvm", branch = "main" }
+clap = { package = "clap", version = "4.3.4", features = ["derive"] }
+num-traits = "0.2.8"
+rand = "0.4"
+
+gevulot-shim = { git = "https://github.com/gevulotnetwork/gevulot" }
+gevulot-common = { git = "https://github.com/gevulotnetwork/gevulot" }
+
+# error and log
+log = "0.4.0"
+env_logger = "0.10"
+anyhow = { version = "1.0", default-features = false }
+
+[features]
+default = []

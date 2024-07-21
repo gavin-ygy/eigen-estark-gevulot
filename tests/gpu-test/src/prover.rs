@@ -84,8 +84,8 @@ fn run_task(task: Task) -> Result<TaskResult> {
         let brand = device.brand()?;
 
         log::info!("GPU {}:", i);
-        log::info!("  Name: {}", brand);
-        write!(log_file, "name: {}\n", brand);
+        log::info!("  Name: {:?}", brand);
+        write!(log_file, "name: {:?}\n", brand);
     }
 
 

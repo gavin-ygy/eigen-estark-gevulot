@@ -2,6 +2,7 @@ extern crate clap;
 extern crate blstrs;
 use clap::{command, Parser};
 use groth16::api::*;
+use groth16::groth16::*;
 use starky::prove::stark_prove;
 
 use std::fs::File;

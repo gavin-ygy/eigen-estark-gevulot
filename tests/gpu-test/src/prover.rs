@@ -19,6 +19,13 @@ use num_traits::Zero;
 //use rand_new::rngs::OsRng;
 use rand::rngs::OsRng;
 
+use algebraic_gpu::{
+    circom_circuit::CircomCircuit,
+    reader::load_r1cs,
+    witness::{load_input_for_witness, WitnessCalculator},
+    Field, PrimeField,
+};
+
 #[derive(Debug, Parser, Default)]
 #[command(about, version, no_binary_name(true))]
 struct Cli {

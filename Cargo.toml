@@ -2,7 +2,7 @@
 members = [
   "images",
   "tests/shell-test",
-  "tests/e2e-test"，
+  "tests/e2e-test",
    "tests/gpu-test"
   ]
 resolver = "2"

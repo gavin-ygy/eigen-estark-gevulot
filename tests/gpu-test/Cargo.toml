@@ -33,7 +33,7 @@ rand_core = { version = "0.6", optional = true }
 starky = { git = "https://github.com/0xEigenLabs/eigen-zkvm", branch = "main" }
 clap = { package = "clap", version = "4.3.4", features = ["derive"] }
 num-traits = "0.2.8"
-rand = "0.4"
+##rand = "0.4"
 
 gevulot-shim = { git = "https://github.com/gevulotnetwork/gevulot" }
 gevulot-common = { git = "https://github.com/gevulotnetwork/gevulot" }

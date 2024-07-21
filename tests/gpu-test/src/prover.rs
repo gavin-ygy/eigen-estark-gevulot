@@ -9,14 +9,15 @@ use std::fs::File;
 use std::io::Write;
 
 ///Gpu 
-extern crate nvml_wrapper as nvml;
+use nvml_wrapper::Nvml;
 //use algebraic::witness::{load_input_for_witness, WitnessCalculator};
 use algebraic_gpu::circom_circuit::CircomCircuit;
 use algebraic_gpu::reader;
 use blstrs::{Bls12, Scalar};
 use ff::{Field, PrimeField};
 use num_traits::Zero;
-use rand_new::rngs::OsRng;
+//use rand_new::rngs::OsRng;
+use rand::rngs::OsRng;
 
 #[derive(Debug, Parser, Default)]
 #[command(about, version, no_binary_name(true))]
@@ -69,7 +70,7 @@ fn run_task(task: Task) -> Result<TaskResult> {
         _ => write!(log_file, "The prover executes successfully.\n")?,
     };
 */
-    let nvml = nvml::new().unwrap();
+        let nvml = Nvml::init()?;
 
     // 获取 GPU 设备的数量
     let device_count = nvml.device_count().unwrap();

@@ -68,7 +68,7 @@ fn run_task(task: Task) -> Result<TaskResult> {
         _ => write!(log_file, "The prover executes successfully.\n")?,
     };
 */
-    let nvml = nvml::Nvml::new().unwrap();
+    let nvml = nvml::new().unwrap();
 
     // 获取 GPU 设备的数量
     let device_count = nvml.device_count().unwrap();

@@ -77,7 +77,7 @@ fn run_task(task: Task) -> Result<TaskResult> {
     // 获取 GPU 设备的数量
     let device_count = nvml.device_count().unwrap();
     log::info!("Number of GPUs: {}", device_count);
-    write!(log_file, "Number of GPUs: {}\n", device_count);
+    write!(log_file, "Number of GPUs: {}\n", device_count)?;
     // 遍历所有 GPU 设备
     for i in 0..device_count {
         let device = nvml.device_by_index(i as u32).unwrap();
@@ -85,7 +85,7 @@ fn run_task(task: Task) -> Result<TaskResult> {
 
         log::info!("GPU {}:", i);
         log::info!("  Name: {:?}", brand);
-        write!(log_file, "name: {:?}\n", brand);
+        write!(log_file, "name: {:?}\n", brand)?;
     }
 
 

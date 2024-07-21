@@ -45,3 +45,4 @@ anyhow = { version = "1.0", default-features = false }
 
 [features]
 default = []
+cuda = ["groth16/cuda"]

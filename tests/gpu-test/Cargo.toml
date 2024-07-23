@@ -21,7 +21,7 @@ groth16 = { git = "https://github.com/0xEigenLabs/eigen-zkvm", branch = "main" }
 # GPU-specific dependencies (enabled only for cuda and opencl features)
 algebraic-gpu = { git = "https://github.com/0xEigenLabs/eigen-zkvm", branch = "main" }
 algebraic = { git = "https://github.com/0xEigenLabs/eigen-zkvm", branch = "main" }
-nvml-wrapper = "0.10"
+##nvml-wrapper = "0.10"
 blstrs = "0.7"
 rand = "0.8"
 ff = "0.13.0"

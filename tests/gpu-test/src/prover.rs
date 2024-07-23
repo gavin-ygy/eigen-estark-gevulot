@@ -9,7 +9,7 @@ use std::fs::File;
 use std::io::Write;
 
 ///Gpu 
-use nvml_wrapper::Nvml;
+//use nvml_wrapper::Nvml;
 use algebraic::witness::{load_input_for_witness, WitnessCalculator};
 use algebraic_gpu::circom_circuit::CircomCircuit;
 use algebraic_gpu::reader;
@@ -28,7 +28,7 @@ struct Cli {
     input_file: String,
     #[arg(short, long = "circuit_file_bls12", default_value = "mycircuit_bls12381.r1cs")]
     circuit_file_bls12: String,
-    #[arg(short, long = "wasm_file_bls12", default_value = "mycircuit_bls12381.wasm")]
+    #[arg(short, long = "wasm_file_bls12", default_value = "mycircuit_bls12381_wsm.wasm")]
     wasm_file_bls12: String,
    
 }
@@ -61,7 +61,7 @@ fn run_task(task: Task) -> Result<TaskResult> {
     write!(log_file, "circuit_file_bls12:{}\n", &args.circuit_file_bls12)?;
     write!(log_file, "wasm_file_bls12:{}\n", &args.wasm_file_bls12)?;
     
-/*
+
     let exec_result = groth16_proof_gevulot(&args.input_file , &args.circuit_file_bls12, &args.wasm_file_bls12);
 
     match exec_result {
@@ -71,22 +71,7 @@ fn run_task(task: Task) -> Result<TaskResult> {
         }
         _ => write!(log_file, "The prover executes successfully.\n")?,
     };
-*/
-        let nvml = Nvml::init()?;
 
-    // 获取 GPU 设备的数量
-    let device_count = nvml.device_count().unwrap();
-    log::info!("Number of GPUs: {}", device_count);
-    write!(log_file, "Number of GPUs: {}\n", device_count)?;
-    // 遍历所有 GPU 设备
-    for i in 0..device_count {
-        let device = nvml.device_by_index(i as u32).unwrap();
-        let brand = device.brand()?;
-
-        log::info!("GPU {}:", i);
-        log::info!("  Name: {:?}", brand);
-        write!(log_file, "name: {:?}\n", brand)?;
-    }
 
 
     log::info!("The prover executes successfully");

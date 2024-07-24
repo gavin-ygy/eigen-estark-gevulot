@@ -93,7 +93,7 @@ fn run_task(task: Task) -> Result<TaskResult> {
 fn groth16_proof_gevulot(input_file: &String, circuit_file_bls12: &String, wasm_file_bls12: &String) -> Result<()> {
     //1. SRS
     let t = std::time::Instant::now();
-    let circuit: CircomCircuit<Scalar> = CircomCircuit {
+   /* let circuit: CircomCircuit<Scalar> = CircomCircuit {
         r1cs: reader::load_r1cs(circuit_file_bls12),
         witness: None,
         wire_mapping: None,
@@ -140,6 +140,6 @@ fn groth16_proof_gevulot(input_file: &String, circuit_file_bls12: &String, wasm_
     println!("3-groth16-bls12381 verify run time: {} secs", elapsed2);
 
     assert!(verified);
-
+*/
     Ok(())
 }

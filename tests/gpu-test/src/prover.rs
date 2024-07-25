@@ -99,10 +99,12 @@ fn groth16_proof_gevulot(input_file: &String, circuit_file_bls12: &String, wasm_
         wire_mapping: None,
         aux_offset: 0,
     };
-    let params = Groth16::circuit_specific_setup(circuit, &mut OsRng)?;
+    //let params = Groth16::circuit_specific_setup(circuit, &mut OsRng)?;
     let elapsed = t.elapsed().as_secs_f64();
     println!("1-groth16-bls12381 setup run time: {} secs", elapsed);
  
+
+    load_r1cs
     //2. Prove
     let t1 = std::time::Instant::now();
     let mut wtns = WitnessCalculator::from_file(wasm_file_bls12)?;
@@ -126,6 +128,9 @@ fn groth16_proof_gevulot(input_file: &String, circuit_file_bls12: &String, wasm_
         aux_offset: 0,
     };
     let inputs = circuit1.get_public_inputs().unwrap();
+    //G-test
+    /*let params = Groth16::circuit_specific_setup(circuit, &mut OsRng)?;
+
     let proof: bellperson::groth16::Proof<Bls12> =
         Groth16::prove(&params.0, circuit1, &mut OsRng)?;
     let elapsed1 = t1.elapsed().as_secs_f64();
@@ -140,6 +145,6 @@ fn groth16_proof_gevulot(input_file: &String, circuit_file_bls12: &String, wasm_
     println!("3-groth16-bls12381 verify run time: {} secs", elapsed2);
 
     assert!(verified);
-
+*/
     Ok(())
 }

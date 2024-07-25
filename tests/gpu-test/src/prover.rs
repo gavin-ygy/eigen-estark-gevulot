@@ -102,7 +102,7 @@ fn groth16_proof_gevulot(input_file: &String, circuit_file_bls12: &String, wasm_
     //let params = Groth16::circuit_specific_setup(circuit, &mut OsRng)?;
     let elapsed = t.elapsed().as_secs_f64();
     println!("1-groth16-bls12381 setup run time: {} secs", elapsed);
-    std::fs::write("/workspace/debug.log", b"1-groth16-bls12381 setup run time: {} secs", elapsed)?;
+    std::fs::write("/workspace/debug.log", b"1-groth16-bls12381 setup run time: ")?;
 
     //2. Prove
     let t1 = std::time::Instant::now();
